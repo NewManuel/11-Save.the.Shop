@@ -1,5 +1,7 @@
+//Importing Dependencies
+//The first construct imports the Product model from the '../models' directory.
 const { Product } = require('../models');
-
+// Defining Product Data - The productData array contains objects, each representing a product. Each product object has properties such as product_name, price, stock, and category_id. These properties correspond to the columns in the product table.
 const productData = [
   {
     product_name: 'Plain T-Shirt',
@@ -32,7 +34,7 @@ const productData = [
     category_id: 2,
   },
 ];
-
+// Defining the seedProducts Function - Here the seedProducts function is defined to bulk-create products in the database using the Product.bulkCreate method provided by Sequelize. This function calls Product.bulkCreate with the productData array as its argument.This method asynchronously creates multiple instances of the Product model based on the data provided.
 const seedProducts = () => Product.bulkCreate(productData);
-
+// const seedProducts = () => Product.bulkCreate(productData); seedProducts function is exported from the module.This allows other parts of the application to import and execute this function to seed the database with product data.
 module.exports = seedProducts;
