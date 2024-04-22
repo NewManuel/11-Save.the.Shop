@@ -18,9 +18,9 @@ Tag.init(
 
     tag_name: {
       type: DataTypes.STRING,
+    },
   },
-  {
-    //The init() method also receives an options object where the sequelize property is set to the sequelize instance, indicating the database connection. Other options like timestamps, freezeTableName, underscored, and modelName are also provided.
+  {//The init() method also receives an options object where the sequelize property is set to the sequelize instance, indicating the database connection. Other options like timestamps, freezeTableName, underscored, and modelName are also provided.
     sequelize,
     timestamps: false,
     freezeTableName: true,
