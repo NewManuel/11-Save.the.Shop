@@ -50,5 +50,6 @@ Product.init(
     modelName: "product",
   }
 );
+
 //Below the module.exports statement exports the Product model, allowing it to be imported and used in other parts of the application.
 module.exports = Product;
