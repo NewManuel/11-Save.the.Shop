@@ -18,8 +18,8 @@ const categoryData = [
     category_name: 'Shoes',
   },
 ];
-//Seed Categories Function - Here the seedCategories function is defined.This function uses the Category model to bulk create categories based on the data provided in the categoryData array.The Category model's bulkCreate method is used to efficiently insert multiple records into the database at once.
-const seedCategories = () => Category.bulkCreate(categoryData);
+//Seed Categories Function - Here the listTheSeeds function is defined.This function uses the Category model to bulk create categories based on the data provided in the categoryData array.The Category model's bulkCreate method is used to efficiently insert multiple records into the database at once.
+const listTheSeeds = () => Category.bulkCreate(categoryData);
 
-//This seedCategories function is exported from this file. This makes it accessible for use in other parts of the application, such as a script for seeding initial data into the database.
-module.exports = seedCategories;
+//This listTheSeeds function is exported from this file. This makes it accessible for use in other parts of the application, such as a script for seeding initial data into the database.
+module.exports = listTheSeeds;

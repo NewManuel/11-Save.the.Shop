@@ -7,7 +7,7 @@ const apiRoutes = require('./api/');
 router.use('/api', apiRoutes);
 //Then this line sets up a default route handler using router.use() without specifying a path. This means that for any request that doesn't match the /api path, Express will execute this handler. In this case, it sends back a simple HTML response indicating that the route is incorrect.
 router.use((req, res) => {
-  res.send("<h1>Wrong Route!</h1>");
+  res.send("<h1>The routing is wrong!</h1>");
 });
 
 //Below this line exports the configured router so that it can be imported and used in other parts of the application. 
