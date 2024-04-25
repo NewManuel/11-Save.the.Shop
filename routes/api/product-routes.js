@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
     });
     res.status(200).json(products);
   } catch (error) {
-    res.status(500).json({ message: "Products not found!", error });
+    res.status(500).json({ error: "Failed to retrieve products" });
   }
 });
 
@@ -20,12 +20,12 @@ router.get("/:id", async (req, res) => {
       include: [Category, Tag],
     });
     if (!product) {
-      res.status(404).json({ message: "Product not found!" });
+      res.status(404).json({ error: "Product not found" });
       return;
     }
     res.status(200).json(product);
   } catch (error) {
-    res.status(500).json({ message: "Product not found!", error });
+    res.status(500).json({ error: "Failed to retrieve product" });
   }
 });
 
@@ -41,9 +41,9 @@ router.post("/", async (req, res) => {
         }))
       );
     }
-    res.status(200).json(product);
+    res.status(201).json(product);
   } catch (error) {
-    res.status(400).json({ message: "Creation failed", error });
+    res.status(400).json({ error: "Failed to create product" });
   }
 });
 
@@ -63,7 +63,7 @@ router.put("/:id", async (req, res) => {
     const product = await Product.findByPk(req.params.id, { include: [Tag] });
     res.json(product);
   } catch (error) {
-    res.status(500).json({ message: "Update failed", error });
+    res.status(500).json({ error: "Failed to update product" });
   }
 });
 
@@ -72,12 +72,12 @@ router.delete("/:id", async (req, res) => {
   try {
     const deleted = await Product.destroy({ where: { id: req.params.id } });
     if (!deleted) {
-      res.status(404).json({ message: "Product not found!" });
+      res.status(404).json({ error: "Product not found" });
       return;
     }
     res.status(200).json(deleted);
   } catch (error) {
-    res.status(500).json({ message: "Product not deleted!", error });
+    res.status(500).json({ error: "Failed to delete product" });
   }
 });
 
